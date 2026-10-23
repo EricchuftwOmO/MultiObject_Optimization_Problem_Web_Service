@@ -5,6 +5,13 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
+// 用require載入其他模組
+const upload = require('./middleware/wsm.upload');
+// 用大括號只取出模組中的指定function
+const { handleWSMRequest } = require('./controller/wsm.controller');
+
+// Endpoint: POST /wsm：先經過 upload 接收檔案，再交給 handleWSMRequest 處理
+app.post('/wsm', upload, handleWSMRequest);
 
 // 開始佔用一個 port、持續等待連線
 app.listen(port, () => {

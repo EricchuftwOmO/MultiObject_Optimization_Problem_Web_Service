@@ -1,0 +1,43 @@
+{
+  "alternatives": [
+    {
+      "name": "Option A",
+      "criteria": {
+        "price": 100,
+        "quality": 8,
+        "durability": 7,
+        "eco_friendly": 6
+      }
+    },
+    {
+      "name": "Option B",
+      "criteria": {
+        "price": 150,
+        "quality": 9,
+        "durability": 8,
+        "eco_friendly": 8
+      }
+    },
+    {
+      "name": "Option C",
+      "criteria": {
+        "price": 80,
+        "quality": 6,
+        "durability": 6,
+        "eco_friendly": 9
+      }
+    }
+  ],
+  "weights": {
+    "price": 0.4,
+    "quality": 0.3,
+    "durability": 0.2,
+    "eco_friendly": 0.1
+  },
+  "criteriaTypes": {
+    "price": "cost",
+    "quality": "benefit",
+    "durability": "benefit",
+    "eco_friendly": "beef"
+  }
+}
