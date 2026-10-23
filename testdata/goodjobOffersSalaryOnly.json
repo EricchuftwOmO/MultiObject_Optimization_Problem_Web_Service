@@ -1,0 +1,154 @@
+{
+  "alternatives": [
+    {
+      "name": "Bluepeak Software",
+      "criteria": {
+        "salary": 125000,
+        "commuteTime": 45,
+        "workLifeBalance": 6,
+        "careerGrowth": 9,
+        "paidTimeOff": 15,
+        "remoteFlexibility": 5,
+        "companyRating": 4.2,
+        "healthInsuranceCost": 150
+      }
+    },
+    {
+      "name": "Cedar Health Systems",
+      "criteria": {
+        "salary": 98000,
+        "commuteTime": 20,
+        "workLifeBalance": 9,
+        "careerGrowth": 6,
+        "paidTimeOff": 25,
+        "remoteFlexibility": 7,
+        "companyRating": 4.5,
+        "healthInsuranceCost": 60
+      }
+    },
+    {
+      "name": "Harborline Logistics",
+      "criteria": {
+        "salary": 105000,
+        "commuteTime": 35,
+        "workLifeBalance": 7,
+        "careerGrowth": 7,
+        "paidTimeOff": 18,
+        "remoteFlexibility": 4,
+        "companyRating": 3.9,
+        "healthInsuranceCost": 110
+      }
+    },
+    {
+      "name": "Lumen Robotics",
+      "criteria": {
+        "salary": 140000,
+        "commuteTime": 60,
+        "workLifeBalance": 4,
+        "careerGrowth": 10,
+        "paidTimeOff": 12,
+        "remoteFlexibility": 3,
+        "companyRating": 4,
+        "healthInsuranceCost": 200
+      }
+    },
+    {
+      "name": "Maple Street Bank",
+      "criteria": {
+        "salary": 110000,
+        "commuteTime": 30,
+        "workLifeBalance": 7,
+        "careerGrowth": 6,
+        "paidTimeOff": 20,
+        "remoteFlexibility": 5,
+        "companyRating": 3.8,
+        "healthInsuranceCost": 90
+      }
+    },
+    {
+      "name": "Nimbus Cloud Labs",
+      "criteria": {
+        "salary": 132000,
+        "commuteTime": 10,
+        "workLifeBalance": 8,
+        "careerGrowth": 8,
+        "paidTimeOff": 20,
+        "remoteFlexibility": 10,
+        "companyRating": 4.4,
+        "healthInsuranceCost": 130
+      }
+    },
+    {
+      "name": "Orchid Games",
+      "criteria": {
+        "salary": 95000,
+        "commuteTime": 25,
+        "workLifeBalance": 5,
+        "careerGrowth": 7,
+        "paidTimeOff": 15,
+        "remoteFlexibility": 6,
+        "companyRating": 3.6,
+        "healthInsuranceCost": 120
+      }
+    },
+    {
+      "name": "Riverstone Consulting",
+      "criteria": {
+        "salary": 118000,
+        "commuteTime": 50,
+        "workLifeBalance": 5,
+        "careerGrowth": 8,
+        "paidTimeOff": 18,
+        "remoteFlexibility": 4,
+        "companyRating": 4.1,
+        "healthInsuranceCost": 100
+      }
+    },
+    {
+      "name": "Summit Energy",
+      "criteria": {
+        "salary": 102000,
+        "commuteTime": 40,
+        "workLifeBalance": 8,
+        "careerGrowth": 5,
+        "paidTimeOff": 22,
+        "remoteFlexibility": 3,
+        "companyRating": 3.7,
+        "healthInsuranceCost": 70
+      }
+    },
+    {
+      "name": "Willow Education Tech",
+      "criteria": {
+        "salary": 92000,
+        "commuteTime": 15,
+        "workLifeBalance": 9,
+        "careerGrowth": 5,
+        "paidTimeOff": 28,
+        "remoteFlexibility": 8,
+        "companyRating": 4.3,
+        "healthInsuranceCost": 50
+      }
+    }
+  ],
+  "weights": {
+    "salary": 1,
+    "commuteTime": 0,
+    "workLifeBalance": 0,
+    "careerGrowth": 0,
+    "paidTimeOff": 0,
+    "remoteFlexibility": 0,
+    "companyRating": 0,
+    "healthInsuranceCost": 0
+  },
+  "criteriaTypes": {
+    "salary": "benefit",
+    "commuteTime": "cost",
+    "workLifeBalance": "benefit",
+    "careerGrowth": "benefit",
+    "paidTimeOff": "benefit",
+    "remoteFlexibility": "benefit",
+    "companyRating": "benefit",
+    "healthInsuranceCost": "cost"
+  }
+}

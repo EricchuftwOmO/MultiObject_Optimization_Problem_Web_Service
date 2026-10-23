@@ -1,0 +1,61 @@
+{
+  "alternatives": [
+    {
+      "name": "Eastbrook University",
+      "criteria": {
+        "tuition": 42000,
+        "ranking": 15,
+        "campusFacilities": 9,
+        "employmentRate": 94
+      }
+    },
+    {
+      "name": "Lakeside State University",
+      "criteria": {
+        "tuition": 12000,
+        "ranking": 60,
+        "campusFacilities": 7,
+        "employmentRate": 85
+      }
+    },
+    {
+      "name": "Northgate Institute of Technology",
+      "criteria": {
+        "tuition": 38000,
+        "ranking": 8,
+        "campusFacilities": 8,
+        "employmentRate": 96
+      }
+    },
+    {
+      "name": "Pinecrest College",
+      "criteria": {
+        "tuition": 25000,
+        "ranking": 35,
+        "campusFacilities": 8,
+        "employmentRate": 89
+      }
+    },
+    {
+      "name": "Westfield Community College",
+      "criteria": {
+        "tuition": 6000,
+        "ranking": 120,
+        "campusFacilities": 5,
+        "employmentRate": 78
+      }
+    }
+  ],
+  "weights": {
+    "tuition": 0.35,
+    "ranking": 0.25,
+    "campusFacilities": 0.15,
+    "employmentRate": 0.25
+  },
+  "criteriaTypes": {
+    "tuition": "cost",
+    "ranking": "cost",
+    "campusFacilities": "benefit",
+    "employmentRate": "benefit"
+  }
+}
