@@ -1,4 +1,5 @@
 const {validateInput} = require('../service/wsm.validator');
+const {runWSM} = require('../service/wsm.service');
 
 function handleWSMRequest(req, res) {
     if (!req.file){
@@ -27,12 +28,9 @@ function handleWSMRequest(req, res) {
         });
     }
 
-    res.json({
-        message: 'Valid JSON',
-        filename: req.file.originalname,
-        size: req.file.size,
-        data: data
-    });
+    // 資料驗證通過，交給 service 計算 WSM 分數並回傳結果
+    const result = runWSM(data);
+    res.status(200).json(result);
 }
 
 module.exports = {

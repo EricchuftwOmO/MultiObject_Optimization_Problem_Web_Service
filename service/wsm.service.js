@@ -52,20 +52,15 @@ function normalizeAlternatives(alternatives, criteriaNames, criteriaTypes) {
   });
 }
 
-// Calculate the WSM score of one alternative: sum of (normalized value x weight)
-function calculateWeightedScore(normalized, weights) {
-  return Object.keys(weights).reduce(
-    (sum, criterion) => sum + normalized[criterion] * weights[criterion],
-    0
-  );
-}
-
-// Calculate the WSM score of every alternative
+// Calculate the WSM score of every alternative: sum of (normalized value x weight)
 // Returns a new array: [{ name, score }]
 function scoreAlternatives(normalizedAlternatives, weights) {
   return normalizedAlternatives.map(({ name, normalized }) => ({
     name,
-    score: calculateWeightedScore(normalized, weights),
+    score: Object.keys(weights).reduce(
+      (sum, criterion) => sum + normalized[criterion] * weights[criterion],
+      0
+    ),
   }));
 }
 
@@ -129,15 +124,5 @@ function runWSM({ alternatives, weights, criteriaTypes }) {
 }
 
 module.exports = {
-  runWSM,
-  getCriteriaNames,
-  findCriteriaExtremes,
-  normalizeValue,
-  normalizeAlternatives,
-  calculateWeightedScore,
-  scoreAlternatives,
-  rankAlternatives,
-  roundScore,
-  computeStatistics,
-  formatResult,
+  runWSM
 };
