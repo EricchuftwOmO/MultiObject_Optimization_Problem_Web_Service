@@ -8,7 +8,10 @@ const port = 3000;
 // 用require載入其他模組
 const upload = require('./middleware/wsm.upload');
 // 用大括號只取出模組中的指定function
-const { handleWSMRequest } = require('./controller/wsm.controller');
+const { getServiceInfo, handleWSMRequest } = require('./controller/wsm.controller');
+
+// Endpoint: GET /：回傳服務說明和可用的 endpoint
+app.get('/', getServiceInfo);
 
 // Endpoint: POST /wsm：先經過 upload 接收檔案，再交給 handleWSMRequest 處理
 app.post('/wsm', upload, handleWSMRequest);

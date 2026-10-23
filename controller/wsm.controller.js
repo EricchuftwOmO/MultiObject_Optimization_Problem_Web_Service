@@ -1,6 +1,33 @@
 const {validateInput} = require('../service/wsm.validator');
 const {runWSM} = require('../service/wsm.service');
 
+// GET /
+// 回傳服務說明：這個服務在做什麼、有哪些 endpoint 可以用
+function getServiceInfo(req, res) {
+    res.status(200).json({
+        service: 'WSM Web Service',
+        description: 'Solves multi-criteria decision-making problems using the Weighted Sum Method (WSM). ' +
+            'Upload a JSON file with alternatives, criteria values, weights and criteria types ' +
+            'to get all alternatives ranked by their WSM scores.',
+        endpoints: [
+            {
+                method: 'GET',
+                path: '/',
+                description: 'Returns this service description'
+            },
+            {
+                method: 'POST',
+                path: '/wsm',
+                description: 'Calculates WSM scores and returns the alternatives ranked from highest to lowest score',
+                contentType: 'multipart/form-data',
+                fileField: 'file',
+                notes: 'If no file is uploaded, the default dataset stored on the server is used'
+            }
+        ]
+    });
+}
+
+// POST 
 function handleWSMRequest(req, res) {
     if (!req.file){
         // no file uploaded
@@ -34,5 +61,6 @@ function handleWSMRequest(req, res) {
 }
 
 module.exports = {
+    getServiceInfo,
     handleWSMRequest
 };
