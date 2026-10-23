@@ -8,6 +8,7 @@ const port = 3000;
 // 用require載入其他模組
 const upload = require('./middleware/wsm.upload');
 const notFound = require('./middleware/wsm.notFound');
+const errorHandler = require('./middleware/wsm.errorHandler');
 // 用大括號只取出模組中的指定function
 const { getServiceInfo, handleWSMRequest } = require('./controller/wsm.controller');
 
@@ -19,6 +20,9 @@ app.post('/wsm', upload, handleWSMRequest);
 
 // 上面的 route 都沒有配對到時，回傳 JSON 格式的 404
 app.use(notFound);
+
+// 處理request過程中發生錯誤時(例如檔案太大)，會執行到這裡，最後由這裡統一回傳 JSON
+app.use(errorHandler);
 
 // 開始佔用一個 port、持續等待連線
 app.listen(port, () => {
