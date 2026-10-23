@@ -77,6 +77,60 @@ function validateCriteriaTypes(criteriaTypes, criteriaNames) {
 
   return errors;
 }
+
+// Check every alternative: name, criteria object and every criterion value
+function validateAlternatives(alternatives, criteriaNames) {
+  const errors = [];
+  const seenNames = new Set();
+
+  for (const [index, alternative] of alternatives.entries()) {
+    const label = `alternatives[${index}]`;
+
+    // 接下來的檢查都寫在這裡
+    // 檢查alternative是物件
+     if (!isPlainObject(alternative)) {
+      errors.push(`${label} must be an object`);
+      continue;
+    }
+
+    // 檢查名稱
+    const { name, criteria } = alternative;
+    // trim()去掉前後的空白
+    if (typeof name !== 'string' || name.trim() === '') {
+      errors.push(`${label} must have a non-empty "name"`);
+    } else if (seenNames.has(name)) {
+      errors.push(`Duplicate alternative name "${name}"`);
+    } else {
+      seenNames.add(name);
+    }
+
+    // 檢查criteria是物件
+    if (!isPlainObject(criteria)) {
+      errors.push(`${label} must have a "criteria" object`);
+      continue;
+    }
+
+    // 檢查每個criteria的值是不是>0 (不能=0，因為正規化的公式會除以數值，會出錯)
+    for (const criterion of criteriaNames) {
+      const value = criteria[criterion];
+      if (value === undefined) {
+        errors.push(`${label} is missing "${criterion}"`);
+      } else if (!isPositiveNumber(value)) {
+        errors.push(`${label} "${criterion}" must be a number greater than 0`);
+      }
+    }
+
+    // 檢查是否有多出來的準則
+    for (const criterion of Object.keys(criteria)) {
+      if (!criteriaNames.includes(criterion)) {
+        errors.push(`${label} has unknown criterion "${criterion}"`);
+      }
+    }
+
+  }
+
+  return errors;
+}
 // *************************
 // Run all validation checks and return every error found
 function validateInput(data) {
@@ -92,6 +146,7 @@ function validateInput(data) {
     // [...['a'], ...['b','c']] -> ['a','b','c']
     ...validateWeights(data.weights),
     ...validateCriteriaTypes(data.criteriaTypes, criteriaNames),
+    ...validateAlternatives(data.alternatives, criteriaNames)
   ];
 }
 
